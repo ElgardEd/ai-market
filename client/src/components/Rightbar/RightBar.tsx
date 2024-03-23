@@ -13,16 +13,14 @@ function RightBar({ visibleR }: visibleProps) {
     };
 
     return (
-        <div className={`block-right-bar ${!visibleR ? 'closeR' : 'openR'}`}>
-            <div className="block-right-bar-content">
-                <div className="block-navbar">
-                    <p>Category</p>
-                    <ul>
-                        {categories.map((category, index) => (
-                            <li onClick={() => onHandleOpenCategoryChat(category.category)} key={index}>{category.category}</li>
-                        ))}
-                    </ul>
-                </div>
+        <div className={`block-right-bar ${!visibleR ? 'hiddenR' : ''}`}>
+            <div className="block-navbar">
+                <p>Category</p>
+                <ul className="content-navbar-right">
+                    {categories.map((category, index) => (
+                        <li onClick={() => onHandleOpenCategoryChat(category.category)} key={index}>{category.category}</li>
+                    ))}
+                </ul>
             </div>
         </div>
     )

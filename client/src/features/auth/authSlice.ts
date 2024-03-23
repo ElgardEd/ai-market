@@ -57,7 +57,7 @@ export const login = createAsyncThunk(
   'auth/login',
   async (credentials: Omit<User, 'name'>, { rejectWithValue }) => {
     try {
-      return await makeRequest<AuthResponseType>('/api/users/login', {
+      return await makeRequest<AuthResponseType>('/api/signin', {
         method: 'POST',
         data: credentials
       })
@@ -131,6 +131,7 @@ function resetState(state: AuthState) {
 
 function updateStateWithSuccessData(state: AuthState, payload: AuthResponseType) {
   state.status = 'succeeded'
+  console.log('11111111111111111');
   state.isAuthenticated = true
   state.error = null
   state.message = payload.message
